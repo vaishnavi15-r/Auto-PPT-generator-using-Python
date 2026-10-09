@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Flask CSS Link -->
+        <link href="{{ url_for('static', filename='first.css') }}" rel="stylesheet">
+        <title>Home Page</title>
+    </head>
+
+<body>
+
+<!-- ✅ FLASH POPUP MESSAGE ADDED HERE -->
+<!-- ✅ FLASH POPUP MESSAGE -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div id="flash-container">
+      {% for category, message in messages %}
+        <div class="popup-message {{ category }}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+
+    <main>
+       <header class="header"> 
+        <nav class="nav">
+            <div class="logo">
+                <h1> Auto-PPT🫧</h1>
+            </div>
+                   
+            <ul class="nav-links">  
+                <li><a href="#home">Home</a></li>
+                <li><a href="#" onclick="openLogin()">Login</a></li>
+                <li><a href="#" onclick="openSignup()">Sign Up</a></li>
+            </ul>
+        </nav>
+       </header>
+    </main>
+
+    <section class="hero">
+        <div class="output-box">
+            <h2>Present Smarter, Not Harder..!</h2>
+            <p>
+                Create professional PowerPoint slides instantly from your content.
+                Turn your ideas into polished, presentation-ready slides in seconds 
+                with our automatic PPT generator. Simple, fast, and efficient.
+            </p>
+            <a href="/dashboard"> 
+                <button class="start-btn">Let's Start..💡</button>
+            </a>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="login-box">
+            <span class="close-btn" onclick="closeLogin()">&times;</span>
+            <h2>Login</h2>
+
+            <!-- Login Form -->
+            <form action="/login" method="POST">
+                <input type="email" name="email" placeholder="Enter Email" required>
+                <input type="password" name="password" placeholder="Enter Password" required>
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+        <div class="login-box">
+            <span class="close-btn" onclick="closeSignup()">&times;</span>
+            <h2>Create Account</h2>
+
+            <!-- Signup Form -->
+            <form action="/signup" method="POST">
+                <input type="text" name="name" placeholder="Enter Name" required>
+                <input type="email" name="email" placeholder="Enter Email" required>
+                <input type="password" name="password" placeholder="Create New Password" required>
+                <button type="submit" class="login-btn">Sign Up</button>
+            </form>
+
+        </div>
+    </div>
+
+<script>
+    function openLogin() {
+        document.getElementById("loginModal").style.display = "flex";
+    }
+
+    function closeLogin() {
+        document.getElementById("loginModal").style.display = "none";
+    }
+
+    function openSignup() {
+        document.getElementById("signupModal").style.display = "flex";
+    }
+
+    function closeSignup() {
+        document.getElementById("signupModal").style.display = "none";
+    }
+
+    // ✅ Auto hide popup after 4 seconds
+    setTimeout(function() {
+
+    var flashContainer = document.getElementById("flash-container");
+
+    if (flashContainer) {
+
+        flashContainer.style.opacity = "0";
+        flashContainer.style.transition = "opacity 0.5s ease";
+
+        setTimeout(function() {
+            flashContainer.remove();
+        }, 500);
+
+    }
+
+}, 3000);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+  <head>
+    <title>File to PPT</title>
+    <link rel="stylesheet" href="/static/text.css" />
+  </head>
+  <body>
+    <div class="hero">
+      <div class="container">
+        <h1>File to PPT</h1>
+
+        <!-- IMPORTANT: enctype is required for file upload -->
+        <form
+          action="/generate/pdf"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <label>Presentation Title</label>
+          <input type="text" name="title" />
+
+          <label>Owner Name</label>
+          <input type="text" name="owner" />
+
+          <!-- File Upload Instead of Textarea -->
+          <label>Upload PDF or Text File</label>
+          <input type="file" name="file" accept=".pdf,.txt" required />
+
+          <div class="inline">
+            <label>Font Size</label>
+            <select name="font">
+              <option>16</option>
+              <option selected>20</option>
+              <option>24</option>
+            </select>
+          </div>
+
+          <div class="inline">
+            <label>Points per Slide</label>
+            <select name="points">
+              <option>3</option>
+              <option selected>5</option>
+              <option>7</option>
+            </select>
+          </div>
+
+          <label>Choose Theme:</label>
+          <div class="theme-options">
+            <label class="theme-option">
+              <input type="radio" name="theme" value="light" checked />
+              <div
+                class="theme-preview"
+                style="background: #fff; border: 1px solid #ccc"
+              ></div>
+              Light
+            </label>
+
+            <label class="theme-option">
+              <input type="radio" name="theme" value="pastel" />
+              <div
+                class="theme-preview"
+                style="background: #dfefff; border: 1px solid #005"
+              ></div>
+              Pastel
+            </label>
+
+            <label class="theme-option">
+              <input type="radio" name="theme" value="mint" />
+              <div
+                class="theme-preview"
+                style="background: #e6f9e6; border: 1px solid #2e7d32"
+              ></div>
+              Mint
+            </label>
+
+            <label class="theme-option">
+              <input type="radio" name="theme" value="peach" />
+              <div
+                class="theme-preview"
+                style="background: #ffe5b4; border: 1px solid #ff8c00"
+              ></div>
+              Peach
+            </label>
+
+            <label class="theme-option">
+              <input type="radio" name="theme" value="lavender" />
+              <div
+                class="theme-preview"
+                style="background: #f3e5f5; border: 1px solid #7b1fa2"
+              ></div>
+              Lavender
+            </label>
+
+            <label class="theme-option">
+              <input type="radio" name="theme" value="sky" />
+              <div
+                class="theme-preview"
+                style="background: #e1f5fe; border: 1px solid #0277bd"
+              ></div>
+              Sky
+            </label>
+
+            <label class="theme-option">
+              <input type="radio" name="theme" value="gray" />
+              <div
+                class="theme-preview"
+                style="background: #f5f5f5; border: 1px solid #444"
+              ></div>
+              Gray
+            </label>
+          </div>
+
+          <button>🎨 Generate PPT</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

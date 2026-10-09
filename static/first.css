@@ -1,0 +1,302 @@
+.header{
+    
+    margin: 0 auto;
+    padding: 0 20px; 
+    box-sizing: border-box;
+}
+
+.header{
+    background-color: #720568;
+    color: white;
+    font-size: 18px;
+   padding: 0.5rem 0;
+   position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    font-family: sans-serif;
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1{
+    font-size: 1.5rem;
+    font-weight: bold;
+    /* margin-bottom: 0.2rem; */
+    /* color: aliceblue; */
+    margin-left: 2rem;
+}
+
+.nav-links{
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a{
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    margin-right: 3rem;
+    font-weight: bold;
+    transition: bakckground-color 0.3s ease;
+}
+
+.nav-links a:hover {
+    background: rgba(193, 123, 216, 0.596);
+    border-radius: 10px;
+    transform: translateY(-3px);
+}
+
+/* body {
+    background-image: url("background.avif"); 
+    background-size: cover;    
+    background-repeat: no-repeat; 
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+    z-index: -1; 
+} */
+
+body::before {
+    content: "";
+    position: fixed;
+    top: -10px;
+    left: -10px;
+    width: 110%;
+    height: 110%;
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.626), rgba(0, 0, 0, 0.67)),
+        url("background.avif");  
+    background-size: cover;
+    background-position: center;
+    /* filter: blur(2px); */
+    z-index: -1;
+    
+}
+
+
+.hero {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 75px;
+}
+
+/* 🔥 Main Pink Box */
+.output-box {
+    width: 550px;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    font-family: sans-serif;
+    background: linear-gradient(135deg, #c11577, #ce127a);
+    border-radius: 26px;
+    border: 4px solid #650038;
+
+    box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Heading */
+.output-box h2 {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+/* Paragraph */
+.output-box p {
+    font-size: 17px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+/* Button */
+.start-btn {
+    padding: 15px 35px;
+    font-size: 20px;
+    background: linear-gradient(to right, #5e055b, #7d05a9);
+    border: none;
+    border-radius: 30px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+/* Button Hover */
+.start-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+
+
+/* .modal {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+} */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    justify-content: center;
+    align-items: center;
+
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+
+
+/* Login Box */
+.login-box {
+    background: linear-gradient(135deg, #95378d, #d056a7);
+    padding: 40px;
+    width: 450px;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    position: relative;
+    box-shadow: 0 15px 40px rgba(240, 25, 25, 0.5);
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* Inputs */
+.login-box input {
+    width: 100%;
+    padding: 12px;
+    /* margin-right: 12px; */
+    margin: 15px 0;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+
+/* Login Button */
+.login-btn {
+    width: 70%;
+    padding: 12px;
+    background: linear-gradient(to right, #5d0d71, #9a05b1);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    transform: scale(1.05);
+}
+
+/* ================= MESSAGE POPUP ================= */
+
+.message-box {
+    margin-top: 10px;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    animation: slideDown 0.4s ease;
+}
+
+/* Success message */
+.message-success {
+    background: rgba(46, 204, 113, 0.2);
+    border: 1px solid #2ecc71;
+    color: #ffffff;
+}
+
+/* Error message */
+.message-error {
+    background: rgba(231, 76, 60, 0.2);
+    border: 1px solid #e74c3c;
+    color: #ffffff;
+}
+
+/* Warning message */
+.message-warning {
+    background: rgba(241, 196, 15, 0.2);
+    border: 1px solid #f1c40f;
+    color: #ffffff;
+}
+
+/* Animation */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================= FLASH POPUP MESSAGE ================= */
+
+#flash-container {
+    position: fixed;
+    top: 90px; /* below header */
+    right: 20px;
+    z-index: 9999;
+}
+
+.popup-message {
+    padding: 14px 22px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    animation: slideDown 0.4s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* SUCCESS */
+.popup-message.success {
+    background: linear-gradient(135deg, #28a745, #218838);
+}
+
+/* ERROR */
+.popup-message.error {
+    background: linear-gradient(135deg, #dc3545, #c82333);
+}
+
+/* WARNING */
+.popup-message.warning {
+    background: linear-gradient(135deg, #ffc107, #e0a800);
+    color: black;
+}

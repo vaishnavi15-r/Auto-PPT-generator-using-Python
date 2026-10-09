@@ -1,0 +1,129 @@
+/* static/form.css */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: url("/static/back4.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Center everything */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Main white card */
+.container {
+  width: 800px;
+  max-width: 95%;
+  background: white;
+  padding: 40px 50px;
+  border-radius: 18px;
+  border: 6px solid #15084a;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Heading */
+.container h1 {
+  text-align: center;
+  color: #630735;
+  margin-bottom: 25px;
+}
+
+/* Labels */
+label {
+  font-weight: 600;
+  margin-top: 15px;
+  display: block;
+  color: #333;
+}
+
+/* Inputs */
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 12px 14px;
+  margin-top: 6px;
+  border-radius: 10px;
+  border: 2px solid #ddd;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+
+/* Inline rows (font size, points) */
+.inline {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.inline label {
+  width: 180px;
+}
+
+/* -------- THEME SECTION -------- */
+.theme-options {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.theme-option {
+  text-align: center;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.theme-option input {
+  margin-bottom: 6px;
+}
+
+/* Theme color box */
+.theme-preview {
+  width: 45px;
+  height: 45px;
+  border-radius: 8px;
+  margin: 5px auto;
+  transition: 0.2s;
+}
+
+/* Highlight selected theme */
+.theme-option input:checked + .theme-preview {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Button */
+button {
+  margin-top: 30px;
+  width: 100%;
+  padding: 14px;
+  font-size: 18px;
+  border: none;
+  border-radius: 40px;
+  background: linear-gradient(135deg, #4c60af, #6696bb);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}

@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Research Paper to PPT</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='text.css') }}"
+    />
+  </head>
+
+  <body>
+    <!-- Added hero wrapper for centering -->
+    <div class="hero">
+      <div class="container">
+        <h2>Research Paper to PPT</h2>
+
+        <form action="/generate/research" method="POST">
+          <label>Presentation Title</label>
+          <input type="text" name="title" required />
+
+          <label>Owner Name</label>
+          <input type="text" name="owner_name" required />
+
+          <label>Research Paper URL</label>
+          <input
+            type="url"
+            name="url"
+            placeholder="Enter research paper URL..."
+            required
+          />
+
+          <label>Font Size</label>
+          <select name="font_size">
+            <option value="18">18</option>
+            <option value="20" selected>20</option>
+            <option value="22">22</option>
+            <option value="24">24</option>
+          </select>
+
+          <label>Points per Slide</label>
+          <select name="max_points">
+            <option value="4">4</option>
+            <option value="5" selected>5</option>
+            <option value="6">6</option>
+          </select>
+
+          <label>Choose Theme:</label>
+          <div class="theme-options">
+            <label class="theme-option">
+              <input type="radio" name="theme" value="light" checked />
+              <div
+                class="theme-preview"
+                style="background: #fff; border: 1px solid #ccc"
+              ></div>
+              Light
+            </label>
+
+            <label class="theme-option">
+              <input type="radio" name="theme" value="pastel" />
+              <div
+                class="theme-preview"
+                style="background: #dfefff; border: 1px solid #005"
+              ></div>
+              Pastel
+            </label>
+
+            <label class="theme-option">
+              <input type="radio" name="theme" value="mint" />
+              <div
+                class="theme-preview"
+                style="background: #e6f9e6; border: 1px solid #2e7d32"
+              ></div>
+              Mint
+            </label>
+
+            <label class="theme-option">
+              <input type="radio" name="theme" value="peach" />
+              <div
+                class="theme-preview"
+                style="background: #ffe5b4; border: 1px solid #ff8c00"
+              ></div>
+              Peach
+            </label>
+
+            <label class="theme-option">
+              <input type="radio" name="theme" value="lavender" />
+              <div
+                class="theme-preview"
+                style="background: #f3e5f5; border: 1px solid #7b1fa2"
+              ></div>
+              Lavender
+            </label>
+
+            <label class="theme-option">
+              <input type="radio" name="theme" value="sky" />
+              <div
+                class="theme-preview"
+                style="background: #e1f5fe; border: 1px solid #0277bd"
+              ></div>
+              Sky
+            </label>
+
+            <label class="theme-option">
+              <input type="radio" name="theme" value="gray" />
+              <div
+                class="theme-preview"
+                style="background: #f5f5f5; border: 1px solid #444"
+              ></div>
+              Gray
+            </label>
+          </div>
+          <!-- FIXED missing closing div -->
+
+          <button type="submit">📚 Generate PPT</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

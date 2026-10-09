@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Text to PPT</title>
+    <link rel="stylesheet" href="/static/text.css" />
+  </head>
+  <body>
+    <div class="hero">
+      <div class="container">
+        <h1>Text to PPT</h1>
+
+        <form
+          method="POST"
+          action="/generate/text"
+          enctype="multipart/form-data"
+        >
+          <label>Presentation Title</label>
+          <input type="text" id="title" name="title" />
+
+          <label>Owner Name</label>
+          <input type="text" id="owner" name="owner" />
+
+          <label>Content</label>
+          <textarea name="content" id="content" rows="7"></textarea>
+
+          <label>Upload Image (Optional)</label>
+          <input type="file" name="slide_image" accept="image/*" />
+
+          <div class="inline">
+            <label>Font Size</label>
+            <select name="font" id="font">
+              <option>16</option>
+              <option selected>20</option>
+              <option>24</option>
+            </select>
+          </div>
+
+          <div class="inline">
+            <label>Points per Slide</label>
+            <select name="points">
+              <option>3</option>
+              <option selected>5</option>
+              <option>7</option>
+            </select>
+          </div>
+
+          <label>Choose Theme:</label>
+          <div class="theme-options">
+            <label class="theme-option">
+              <input type="radio" name="theme" value="light" checked />
+              <div
+                class="theme-preview"
+                style="background: #fff; border: 1px solid #ccc"
+              ></div>
+              Light
+            </label>
+
+            <label class="theme-option">
+              <input type="radio" name="theme" value="pastel" />
+              <div
+                class="theme-preview"
+                style="background: #dfefff; border: 1px solid #005"
+              ></div>
+              Pastel
+            </label>
+
+            <label class="theme-option">
+              <input type="radio" name="theme" value="mint" />
+              <div
+                class="theme-preview"
+                style="background: #e6f9e6; border: 1px solid #2e7d32"
+              ></div>
+              Mint
+            </label>
+
+            <label class="theme-option">
+              <input type="radio" name="theme" value="peach" />
+              <div
+                class="theme-preview"
+                style="background: #ffe5b4; border: 1px solid #ff8c00"
+              ></div>
+              Peach
+            </label>
+
+            <label class="theme-option">
+              <input type="radio" name="theme" value="lavender" />
+              <div
+                class="theme-preview"
+                style="background: #f3e5f5; border: 1px solid #7b1fa2"
+              ></div>
+              Lavender
+            </label>
+
+            <label class="theme-option">
+              <input type="radio" name="theme" value="sky" />
+              <div
+                class="theme-preview"
+                style="background: #e1f5fe; border: 1px solid #0277bd"
+              ></div>
+              Sky
+            </label>
+
+            <label class="theme-option">
+              <input type="radio" name="theme" value="gray" />
+              <div
+                class="theme-preview"
+                style="background: #f5f5f5; border: 1px solid #444"
+              ></div>
+              Gray
+            </label>
+          </div>
+
+          <button type="submit">🎨Generate PPT</button>
+        </form>
+
+        {% if preview_image %}
+        <div style="text-align: center; margin-bottom: 20px">
+          <img
+            src="data:image/jpeg;base64,{{ preview_image }}"
+            alt="Title Slide Image"
+            style="max-width: 500px; max-height: 300px"
+          />
+        </div>
+        {% endif %} {% if preview %}
+        <hr class="preview-divider" />
+        <h2 class="preview-heading">Presentation Preview</h2>
+        <div class="slides-container">
+          {% for i in range(slides|length) %}
+          <div class="slide-box" style="background-color: '{{ bg_color }}';">
+            <h3>{{ slide_titles[i] }}</h3>
+            <ul>
+              {% for point in slides[i] %}
+              <li>{{ point }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endfor %}
+        </div>
+
+        <div class="download-section">
+          <a href="{{ url_for('text_bp.download_file') }}" class="download-btn">
+            Download PPT
+          </a>
+        </div>
+
+        {% endif %}
+      </div>
+    </div>
+
+    <script>
+      function moveOnEnter(currentId, nextId) {
+        document
+          .getElementById(currentId)
+          .addEventListener("keydown", function (e) {
+            if (e.key === "Enter") {
+              e.preventDefault();
+              document.getElementById(nextId).focus();
+            }
+          });
+      }
+
+      // Flow only up to font
+      moveOnEnter("title", "owner");
+      moveOnEnter("owner", "content");
+      moveOnEnter("content", "font");
+    </script>
+  </body>
+</html>
